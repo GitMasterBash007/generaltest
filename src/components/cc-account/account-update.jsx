@@ -49,12 +49,12 @@ export default function CcUpdate() {
                 <br></br>
                 <input placeholder="Enter exp_date" ref={cvvInput}></input>
                 <span>.......</span>
-                <input placeholder="is zip" ref={zipInput}></input>
+                <input placeholder="Enter your zip Code" ref={zipInput}></input>
                 <br></br>
                 <br></br>
                 <input placeholder="Enter limit" ref={limitInput}></input>
                 <span>.......</span>
-                <input placeholder="is customer_username" ref={customer_usernameInput}></input>
+                <input placeholder="Enter customer_username" ref={customer_usernameInput}></input>
                 <br></br>
                 <br></br> 
                             
