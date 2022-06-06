@@ -6,7 +6,7 @@ import { userContext } from "../../App";
 export default function CustumerLogin() {
     const usernameInput = useRef();
     const passwordInput = useRef();
-    // const isAdminInput = useRef();
+     const is_adminInput = useRef();
 
     const [user, setUser] = useContext(userContext);
     const navigate = useNavigate();
@@ -17,7 +17,7 @@ export default function CustumerLogin() {
         // error due to the refInput.current = undefined, meaning there is no .value available
         const customer = {username: usernameInput.current.value,
             password: passwordInput.current.value,
-           // admin: isAdminInput.current.value,
+          //  is_admin: is_adminInput.current.value,
         };
 
 if (customer.password === "hello") {
@@ -27,19 +27,25 @@ if (customer.password === "hello") {
                 const response = await axios.post(`${url}/auth`, customer);
                 console.log(response.data);
                 console.log("Hey this is the user prior ", user);
-                setUser({ ...user, username: customer.username });
+                setUser({ ...user, username: customer.username});
+                
                 console.log("This is after we set the user ", user);
                 // the below code, manipulates the DOM
                 // window.location.replace("http://localhost:3000/dashboard");
-              
+                // const responses = await axios.get(`${url}/customers`, customer);
+                // console.log(responses.data);
+                // console.log("Hey this is the user prior ", user);
+                // setUser({ ...user, is_admin: customer.is_adminInput });
                 // here we checking if the person who loged in is a customer or an admin
                                
-                if(customer.admin === true){
+                if(usernameInput.current.value === "asebirka" || usernameInput.current.value === "aminase" ){
+                // if(customer.is_adminInpute === true){
+
                     // the below code, manipulates the DOM
                     //window.location.replace("http://localhost:3000/menu-welcome-admin")
-                  navigate("/register");
+                  navigate("/admindashboard");
                 } else{
-                    navigate("/dashboard");
+                    navigate("/customerdashboard");
                    
                 }
                 

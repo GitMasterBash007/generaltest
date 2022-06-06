@@ -2,13 +2,7 @@ import axios from "axios";
 import { useRef } from "react";
 
 export default function AccountRegister() {
-    // const user = {
-    //     fname: "Tester",
-    //     lname: "McTesterson",
-    //     email: "tm@mail.com",
-    //     password: "test",
-    //     dob: "12-31-0000",
-    // };
+  
 
     const url = "http://localhost:8080/aroma";
     

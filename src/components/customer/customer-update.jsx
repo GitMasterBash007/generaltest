@@ -3,14 +3,7 @@ import axios from "axios";
 import { useRef } from "react";
 
 export default function AccountUpdate() {
-    // const user = {
-    //     fname: "Tester",
-    //     lname: "McTesterson",
-    //     email: "tm@mail.com",
-    //     password: "test",
-    //     dob: "12-31-0000",
-    // };
-
+   
     const url = "http://localhost:8080/aroma";
     
 
@@ -47,10 +40,9 @@ export default function AccountUpdate() {
 
     return (
         <>
-                <h4>Hello, new Customer please register below.</h4>
+                <h4>Update your registered account information below.</h4>
                 <input placeholder="Enter your username" ref={usernameInput}></input>
                 <input placeholder="Enter First Name" ref={fnameInput}></input>
-                <br></br>
                 <br></br>
                 <br></br>
                 <input placeholder="Enter Last Name" ref={lnameInput}></input>

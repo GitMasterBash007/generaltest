@@ -22,8 +22,8 @@ export default function AccountWelcome() {
             const menuTableRows = menus.map((e) => {
                 return (
                     <tr>
-                        <td>{}</td>
-                        <td>{}</td>
+                        <td>{e.item_name}</td>
+                        <td>{e.cost}</td>
                     </tr>
                 );
             });
@@ -59,12 +59,12 @@ export default function AccountWelcome() {
     return (
         <>
             {user.username === "Guest" ? <button onClick={() => navigate("/login")}>Login to Create Account</button> : <createCustomer />}
-            {user.username === "Guest" || <button onClick={createCustomer}>Add Item </button>}
+          
             <table>
                 <thead>
                     <tr>
-                        <th></th>
-                        <th></th>
+                        <th>iteam</th>
+                        <th>cost</th>
                     </tr>
                 </thead>
                 <tbody>{customerBody}</tbody>

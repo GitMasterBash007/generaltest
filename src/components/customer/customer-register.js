@@ -50,7 +50,7 @@ export default function CustomerRegister() {
                 <input placeholder="Enter your username" ref={usernameInput}></input>
                 <input placeholder="Enter First Name" ref={fnameInput}></input>
                 <br></br>
-                <br></br>
+               
                 <br></br>
                 <input placeholder="Enter Last Name" ref={lnameInput}></input>
                 {/*when we put type for the input place holder as password , then it would hide the character */}

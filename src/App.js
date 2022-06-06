@@ -7,13 +7,18 @@ import CustomerRegister from "./components/customer/customer-register";
 import CustomerWelcome from "./components/customer/customer-welcome";
 import MenuUpdate from "./components/menu/menu-update";
 import MenuDelete from "./components/menu/menu-delete";
-import MenuRegister from "./components/menu/menu-register";
+import CreateMenu from "./components/menu/menu-create";
 import MenuDashboard from "./components/customer/menu-dashboard";
 import CustomerDashboard from "./components/customer/customer-dashboard";
-import AccountRegister from "./components/customer/add-account";
+import CreateCc from "./components/cc-account/account-create"
 import AccountWelcome from "./components/customer/customer-welcome";
+import CcUpdate from "./components/cc-account/account-update";
+import CcDelete from "./components/cc-account/account-delete";
+import AccountDelete from "./components/customer/customer-delete";
 import AccountUpdate from "./components/customer/customer-update";
-import AccountDelete from "./components/customer/delete-account";
+import CreateOrder from "./components/order/create-order";
+import FindOrder from "./components/order/find-order";
+
 
 export const userContext = createContext();
 
@@ -31,15 +36,19 @@ function App() {
                         <Route path="register" element={<CustomerRegister />}/>
                         <Route exact path="" element={<CustomerWelcome />} />
                         <Route path="menu" element={<MenuWelcome />} />
-                        <Route path="dashboard" element={<MenuDashboard></MenuDashboard>} />
-                        <Route path="add" element={<MenuRegister></MenuRegister>} />
+                        <Route path="admindashboard" element={<MenuDashboard></MenuDashboard>} />
+                        <Route path="customerdashboard" element={<CustomerDashboard></CustomerDashboard>} />
+                        <Route path="add" element={<CreateMenu></CreateMenu>} />
                         <Route path="update" element={<MenuUpdate></MenuUpdate>} />
                         <Route path="delete" element={< MenuDelete></MenuDelete>} />
                         <Route path="customer" element={< AccountWelcome></AccountWelcome>} />
-                        <Route path="dashboard" element={< CustomerDashboard></CustomerDashboard>} />
-                        <Route path="addCC" element={<AccountRegister></AccountRegister>} />
-                        <Route path="updateCC" element={<AccountUpdate></AccountUpdate>} />
-                        <Route path="deleteCC" element={<AccountDelete></AccountDelete>} />
+                        <Route path="addCC" element={<CreateCc></CreateCc>} />
+                        <Route path="updateCC" element={<CcUpdate></CcUpdate>} />
+                        <Route path="deleteCC" element={<CcDelete></CcDelete>} />
+                        <Route path="accountdelete" element={<AccountDelete></AccountDelete>} />
+                        <Route path="updateaccount" element={<AccountUpdate></AccountUpdate>} />
+                        <Route path="creatingorder" element={<CreateOrder></CreateOrder>} />
+                        <Route path="findorder" element={<FindOrder></FindOrder>} />
      
 
 

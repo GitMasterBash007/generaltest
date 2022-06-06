@@ -14,13 +14,10 @@ export default function MenuDashboard() {
             <Link to="/menus">
             </Link>
             <button onClick={() => navigate("/add")}>Add Item to Menu</button>
-            <button onClick={() => navigate("/update")}>update Item</button>
-            <button onClick={() => navigate("/delete")}>Delete Item</button>
             <br></br>
-          
-
-
-
+            <button onClick={() => navigate("/update")}>update Item</button>
+            <br></br>
+            <button onClick={() => navigate("/delete")}>Delete Item</button>
         </>
     );
 }
