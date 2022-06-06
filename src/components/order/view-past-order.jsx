@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { userContext } from "../../App";
 
 
-export default function MenuWelcome() {
+export default function ViewPastOrder() {
     const [menuBody, setMenuBody] = useState([]);
-    const [user] = useContext(userContext);
+    const [user, setUser] = useContext(userContext);
     const navigate = useNavigate();
     const [menu, setMenu] = useState(true);
     const url = "http://localhost:8080/aroma";
@@ -17,13 +17,17 @@ export default function MenuWelcome() {
     // Async/Await in JS, this came around in 2016 (ECMAScript6)
     async function findAll() {
         try {
-            const response = await fetch(`${url}/menus`);
+            const response = await fetch(`${url}/orders`);
             const menus = await response.json();
             const menuTableRows = menus.map((e) => {
                 return (
                     <tr>
-                        <td>{e.item_name}</td>
-                        <td>{e.cost}</td>
+                        <td>{e.id}</td>
+                        <td>{e.comment_t}</td>
+                        <td>{e.customer_username}</td>
+                        <td>{e.isfavorite}</td>
+                        <td>{e.menu_item}</td>
+                        <td>{e.order_date}</td>
                     </tr>
                 );
             });
@@ -43,7 +47,7 @@ export default function MenuWelcome() {
         
     };
 
-    async function createMenu() {
+    async function viewPast() {
         try {
             await axios.post(`${url}/menus`, menuHard);
             if (menu === true) {
@@ -58,13 +62,20 @@ export default function MenuWelcome() {
 
     return (
         <>
-            {user.username === "Guest" ? <button onClick={() => navigate("/login")}>Login to order Menu</button> : <createMenu />}
-            {user.username === "Guest" || <button onClick={createMenu}>Add Item </button>}
+            {user.email === "Guest" ? <button onClick={() => navigate("/login")}>Login to Add Menu Item </button> : <viewPast />}
+             {user.email === "Guest" || <button onClick={viewPast}>Create Menu</button>}  
+            <button onClick={findAll}>Vire past orders</button>
+            
             <table>
                 <thead>
                     <tr>
-                        <th>Item Name</th>
-                        <th>cost</th>
+                        <th>Id</th>
+                        <th>comment</th>
+                        <th>username</th>
+                        <th>Favorite</th>
+                        <th>Menu Item</th>
+                        <th>Order Date</th>
+
                     </tr>
                 </thead>
                 <tbody>{menuBody}</tbody>
@@ -72,3 +83,4 @@ export default function MenuWelcome() {
         </>
     );
 }
+

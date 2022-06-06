@@ -6,6 +6,8 @@ import { userContext } from "../../App";
 export default function CustumerLogin() {
     const usernameInput = useRef();
     const passwordInput = useRef();
+    // const isAdminInput = useRef();
+
     const [user, setUser] = useContext(userContext);
     const navigate = useNavigate();
     const url = "http://localhost:8080/aroma";
@@ -15,6 +17,7 @@ export default function CustumerLogin() {
         // error due to the refInput.current = undefined, meaning there is no .value available
         const customer = {username: usernameInput.current.value,
             password: passwordInput.current.value,
+           // admin: isAdminInput.current.value,
         };
 
 if (customer.password === "hello") {
@@ -28,7 +31,18 @@ if (customer.password === "hello") {
                 console.log("This is after we set the user ", user);
                 // the below code, manipulates the DOM
                 // window.location.replace("http://localhost:3000/dashboard");
-                navigate("/dashboard");
+              
+                // here we checking if the person who loged in is a customer or an admin
+                               
+                if(customer.admin === true){
+                    // the below code, manipulates the DOM
+                    //window.location.replace("http://localhost:3000/menu-welcome-admin")
+                  navigate("/register");
+                } else{
+                    navigate("/dashboard");
+                   
+                }
+                
             } catch (error) {
                 console.error(error.response.data);
                 alert(error.response.data);
@@ -41,6 +55,8 @@ if (customer.password === "hello") {
             <h4>Welcome back, please log in below.</h4>
             <input placeholder="Enter Username" ref={usernameInput}></input>
             <input type="password" placeholder="Enter password" ref={passwordInput}></input>
+            {/* <input placeholder="Admin Status (true/false)" ref={usernameInput}></input> */}
+           
             <button onClick={login}>Login</button>
         </>
     );

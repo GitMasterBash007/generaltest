@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { userContext } from "../../App";
 
 
-export default function MenuWelcome() {
-    const [menuBody, setMenuBody] = useState([]);
+export default function AccountWelcome() {
+    const [customerBody, setCustomerBody] = useState([]);
     const [user] = useContext(userContext);
     const navigate = useNavigate();
-    const [menu, setMenu] = useState(true);
+    const [menu, setCustomer] = useState(true);
     const url = "http://localhost:8080/aroma";
     useEffect(() => {
         findAll();
@@ -22,13 +22,13 @@ export default function MenuWelcome() {
             const menuTableRows = menus.map((e) => {
                 return (
                     <tr>
-                        <td>{e.item_name}</td>
-                        <td>{e.cost}</td>
+                        <td>{}</td>
+                        <td>{}</td>
                     </tr>
                 );
             });
 
-            setMenuBody(menuTableRows);
+            setCustomerBody(menuTableRows);
             console.log(menus);
         } catch (e) {
             console.error(e);
@@ -43,13 +43,13 @@ export default function MenuWelcome() {
         
     };
 
-    async function createMenu() {
+    async function createCustomer() {
         try {
             await axios.post(`${url}/menus`, menuHard);
             if (menu === true) {
-                setMenu(false);
+                setCustomer(false);
             } else {
-                setMenu(true);
+                setCustomer(true);
             }
         } catch (error) {
             console.error(error);
@@ -58,16 +58,16 @@ export default function MenuWelcome() {
 
     return (
         <>
-            {user.username === "Guest" ? <button onClick={() => navigate("/login")}>Login to order Menu</button> : <createMenu />}
-            {user.username === "Guest" || <button onClick={createMenu}>Add Item </button>}
+            {user.username === "Guest" ? <button onClick={() => navigate("/login")}>Login to Create Account</button> : <createCustomer />}
+            {user.username === "Guest" || <button onClick={createCustomer}>Add Item </button>}
             <table>
                 <thead>
                     <tr>
-                        <th>Item Name</th>
-                        <th>cost</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
-                <tbody>{menuBody}</tbody>
+                <tbody>{customerBody}</tbody>
             </table>
         </>
     );

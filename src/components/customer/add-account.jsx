@@ -1,8 +1,7 @@
-
 import axios from "axios";
 import { useRef } from "react";
 
-export default function AccountUpdate() {
+export default function AccountRegister() {
     // const user = {
     //     fname: "Tester",
     //     lname: "McTesterson",
@@ -36,7 +35,7 @@ export default function AccountUpdate() {
              
     };
         try {
-            const response = await axios.put(`${url}/customers`, user);
+            const response = await axios.post(`${url}/customers`, user);
             console.log(response.data);
          
         } catch (error) {
@@ -63,7 +62,7 @@ export default function AccountUpdate() {
 
                 <br></br>                   
                 <br></br>
-                <button onClick={register}>Update Account</button>
+                <button onClick={register}>Add Account</button>
         </>
     );
 }
