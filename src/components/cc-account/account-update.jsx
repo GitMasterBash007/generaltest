@@ -43,19 +43,20 @@ export default function CcUpdate() {
         <>
                 <h4>You can update the menu here</h4>
                 <input placeholder="Enter cc_number" ref={cc_numberInput}></input>
+                <span>.......</span>
                 <input placeholder="Enter cc_name" ref={cc_nameInput}></input>
                 <br></br>
                 <br></br>
                 <input placeholder="Enter exp_date" ref={cvvInput}></input>
+                <span>.......</span>
                 <input placeholder="is zip" ref={zipInput}></input>
                 <br></br>
                 <br></br>
                 <input placeholder="Enter limit" ref={limitInput}></input>
+                <span>.......</span>
                 <input placeholder="is customer_username" ref={customer_usernameInput}></input>
                 <br></br>
-            
-                
-                
+                <br></br> 
                             
                 <button onClick={register}>Update</button>
         </>
